@@ -26,8 +26,8 @@ foreach($cache_links_text as $link){
 $bannerad="";
 for($b=1;$b<6;$b++){
 	if(intval($cache_settings["banner".$b])>0){
-		//$bannerad.="<div class=slide style='height:300px'><a href=\"".$cache_settings['bannerlink'.$b]."\" target=\"_blank\"><img  src=\"".$webcore->getPicPath($cache_settings['bannerpath'.$b])."\"></a></div>";
-		$bannerad.="<li class='slide'><a href=\"".$cache_settings['bannerlink'.$b]."\" target=\"_blank\"><img src=\"".$webcore->getPicPath($cache_settings['bannerpath'.$b])."\"></a></li>";
+		$bannerad.="<div class=slide style='height:300px'><a href=\"".$cache_settings['bannerlink'.$b]."\" target=\"_blank\"><img  src=\"".$webcore->getPicPath($cache_settings['bannerpath'.$b])."\"></a></div>";
+		//$bannerad.="<li class='slide'><a href=\"".$cache_settings['bannerlink'.$b]."\" target=\"_blank\"><img src=\"".$webcore->getPicPath($cache_settings['bannerpath'.$b])."\"></a></li>";
 	}
 }
 

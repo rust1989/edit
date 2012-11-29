@@ -68,6 +68,12 @@ print<<<EOT
 			<li><a href="admin.php?inc=products&action=add">{$_AL['index.product.add']}</a></li>
 			<li><a href="admin.php?inc=products&action=list">{$_AL['index.product.list']}</a></li>
 		</ul>
+        <div class="headbg" id="picture">{$_AL['index.picture.man']}</div>
+		<ul id="picture_ul" style="display:none;">
+			<li><a href="admin.php?inc=piccate&action=set">{$_AL['index.piccate.list']}</a></li>
+			<li><a href="admin.php?inc=picture&action=add">{$_AL['index.picture.add']}</a></li>
+			<li><a href="admin.php?inc=picture&action=list">{$_AL['index.picture.list']}</a></li>
+		</ul>
 		<div class="headbg" id="order">{$_AL['index.order.man']}</div>
 		<ul id="order_ul" style="display:none;">
 			<li><a href="admin.php?inc=order&action=list&state=0">{$_AL['index.order.state0']}</a></li>
@@ -112,7 +118,7 @@ print<<<EOT
 
 
 <script>
-var leftHead=['channel','product','order','member','setting','other'];
+var leftHead=['channel','product','picture','order','member','setting','other'];
 var menuNowTab;
 var pt = new Tabs();
 pt.classpre="bigtab_";

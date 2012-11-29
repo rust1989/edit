@@ -16,7 +16,7 @@ textarea{font:12px Verdana, Tahoma, Arial;}
 .ip{font-size:11px; font-family:Arial; color:#FF6600; }
 .time a:link,.time a:hover,.time a:visited,.time a:active{color:#FF6600;}
 .ip a:link,.ip a:hover,.ip a:visited,.ip a:active{color:#FF6600;}
-a:link, a:active, a:visited{text-decoration:none;color:#000000;}
+a:link, a:active, a:visited{text-decoration:none;color:#000000; }
 a:hover{text-decoration:underline;color:#148FC8;}
 a img{border:none;}
 img{border:none;}
@@ -283,6 +283,12 @@ ul#topnav .sub ul li a:hover {color:#148FC8; }
 
 /************** Banner 横幅广告*************/
 #banner{margin:0 auto; width:960px;}
+.pagination{ position:absolute; bottom:20px; margin-right:100px; right:0px;z-index:10}
+#bannerbox{width:960px; position:relative; height:320px; overflow:hidden;}
+#slides{MARGIN:8px auto; OVERFLOW:hidden; WIDTH:960px; HEIGHT:304px;  }
+.pagination li{float:left; margin-right:2px;padding:5px; border-radius:50%; background-color:#716564; }
+.pagination li a{ display:none}
+.pagination li.current{background-color:#C80002}
 #imgPlay {
 	MARGIN:8px auto; OVERFLOW:hidden; WIDTH:960px; ZOOM:1; POSITION:relative; HEIGHT:304px; z-index:1;
 }

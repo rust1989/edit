@@ -12,7 +12,7 @@ switch($action){
 		$row=null;
 		$row['level']=3;
 	}else{
-		$row=$db->row_select_one("products","id={$id}","*");
+		$row=$db->row_select_one("picture","id={$id}","*");
 		$cid=intval($row['cid']);
 		$pics=$webcore->getPics($row['picids'],$row['picpaths']);
 		
@@ -28,26 +28,26 @@ echo <<<EOT
 	<table class="settop"><tr><td class="settop_left"><img src="../language/{$cache_langs[$_SYS['alangid']]['directory']}/flag.gif" title="{$effect_lang}" /></td><td><div id="smalltab_container"></div></td></tr></table>
 	<div class="smalltab_line"></div>
 	<div class="div_clear" style="height:10px;"></div>
-	<form id="articleform" method="POST" onsubmit="return checkAllAction()" action="products_ajax.php?action=saveproducts">
+	<form id="articleform" method="POST" onsubmit="return checkAllAction()" action="picture_ajax.php?action=savepicture">
 	<div id="t1">
 		<table class="table_1">
-			<tr><td class="td_0" style="width:400px;">{$_AL['products.name']}:</td><td class=""></td></tr>
+			<tr><td class="td_0" style="width:400px;">{$_AL['picture.name']}:</td><td class=""></td></tr>
 			<tr><td class="td_1"><input type="hidden" name="doaction" id="doaction" value="{$action}" /><input type="hidden" name="id" id="id" value="{$id}" /><input type="text"  value="{$row['name']}" name="name" id="name"  class="text_css" style="width:380px;" /></td><td class="td_2"></td></tr>
-			<tr style="display:none;"><td class="td_0">{$_AL['products.url']}:</td><td class=""></td></tr>
-			<tr style="display:none;"><td class="td_1"><input type="text"  value="{$row['alias']}" name="alias" id="alias"  class="text_css" style="width:380px;" /></td><td class="td_2">{$_AL['products.url.remark']}</td></tr>
-			<tr><td class="td_0">{$_AL['products.serialnum']}:</td><td class=""></td></tr>
+			<tr style="display:none;"><td class="td_0">{$_AL['picture.url']}:</td><td class=""></td></tr>
+			<tr style="display:none;"><td class="td_1"><input type="text"  value="{$row['alias']}" name="alias" id="alias"  class="text_css" style="width:380px;" /></td><td class="td_2">{$_AL['picture.url.remark']}</td></tr>
+			<tr><td class="td_0">{$_AL['picture.serialnum']}:</td><td class=""></td></tr>
 			<tr><td class="td_1"><input type="text"  value="{$row['serialnum']}" name="serialnum" id="serialnum"  class="text_css" style="width:380px;" /></td><td class="td_2"></td></tr>
-			<tr><td class="td_0">{$_AL['products.images']}</td><td class=""><input type='button' id='addimgnum' class='addimgbtn' value='增加图片' onclick="addmoreimg();" ></td></tr>
-			<tr><td class="td_1"><div id="img_container" style="width:420px;height:70px;"><img src="images/loading.gif" /></div></td><td class="td_2">{$_AL['products.images.remark']}</td></tr>
-			<tr><td class="td_0">{$_AL['products.store']}/{$_AL['products.sold']}:</td><td class=""></td></tr>
-			<tr><td class="td_1"><input type="text"  value="{$row['store']}" name="store" id="store"  class="text_css" style="width:80px;" /> / <input type="text"  value="{$row['sold']}" name="sold" id="sold"  class="text_css" style="width:80px;" /></td><td class="td_2">{$_AL['products.sold.remark']}</td></tr>
-			<tr><td class="td_0">{$_AL['products.price']}:</td><td class=""></td></tr>
+			<tr><td class="td_0">{$_AL['picture.images']}</td><td class=""><input type='button' id='addimgnum' class='addimgbtn' value='增加图片' onclick="addmoreimg();" ></td></tr>
+			<tr><td class="td_1"><div id="img_container" style="width:420px;height:70px;"><img src="images/loading.gif" /></div></td><td class="td_2">{$_AL['picture.images.remark']}</td></tr>
+			<tr><td class="td_0">{$_AL['picture.store']}/{$_AL['picture.sold']}:</td><td class=""></td></tr>
+			<tr><td class="td_1"><input type="text"  value="{$row['store']}" name="store" id="store"  class="text_css" style="width:80px;" /> / <input type="text"  value="{$row['sold']}" name="sold" id="sold"  class="text_css" style="width:80px;" /></td><td class="td_2">{$_AL['picture.sold.remark']}</td></tr>
+			<tr><td class="td_0">{$_AL['picture.price']}:</td><td class=""></td></tr>
 			<tr><td class="td_1"><input type="text"  value="{$row['price1']}" name="price1" id="price1"  class="text_css" /> {$cache_settings['cur']}</td><td class="td_2"></td></tr>
-			<tr><td class="td_0">{$_AL['products.level']}:</td><td class=""></td></tr>
-			<tr><td class="td_1"><select name="level" id="level"><option value="1">{$_AL['products.levels'][0]}</option><option value="2">{$_AL['products.levels'][1]}</option><option value="3">{$_AL['products.levels'][2]}</option><option value="4">{$_AL['products.levels'][3]}</option><option value="5">{$_AL['products.levels'][4]}</option></select></td><td class="td_2"></td></tr>
-			<tr><td class="td_0">{$_AL['products.type']}:</td><td class=""></td></tr>
-			<tr><td class="td_1"><select name="type" id="type"><option value="0">{$_AL['products.types'][0]}</option><option value="1">{$_AL['products.types'][1]}</option><option value="2">{$_AL['products.types'][2]}</option></select></td><td class="td_2"></td></tr>
-			<tr><td class="td_0">{$_AL['products.procate']}:</td><td class=""></td></tr>
+			<tr><td class="td_0">{$_AL['picture.level']}:</td><td class=""></td></tr>
+			<tr><td class="td_1"><select name="level" id="level"><option value="1">{$_AL['picture.levels'][0]}</option><option value="2">{$_AL['picture.levels'][1]}</option><option value="3">{$_AL['picture.levels'][2]}</option><option value="4">{$_AL['picture.levels'][3]}</option><option value="5">{$_AL['picture.levels'][4]}</option></select></td><td class="td_2"></td></tr>
+			<tr><td class="td_0">{$_AL['picture.type']}:</td><td class=""></td></tr>
+			<tr><td class="td_1"><select name="type" id="type"><option value="0">{$_AL['picture.types'][0]}</option><option value="1">{$_AL['picture.types'][1]}</option><option value="2">{$_AL['picture.types'][2]}</option></select></td><td class="td_2"></td></tr>
+			<tr><td class="td_0">{$_AL['picture.procate']}:</td><td class=""></td></tr>
 			<tr><td class="td_1"><select name="cid" id="cid">{$cache_procates_option}</select></td><td class="td_2"></td></tr>
 			<tr><td class="td_0">{$_AL['all.seotitle']}:</td><td class=""></td></tr>
 			<tr><td class="td_1"><input type="text" style="width:380px;" value="{$row['seotitle']}" name="seotitle" id="seotitle" class="text_css" /></td><td class="td_2">{$_AL['all.seotitle.remark']}</td></tr>
@@ -57,7 +57,7 @@ echo <<<EOT
 			<tr><td class="td_1"><textarea style="height:60px;width:380px;" name="metadesc" id="metadesc">{$row['metadesc']}</textarea></td><td class="td_2">{$_AL['all.metadesc.remark']}</td></tr>
 		</table>
 		<table class="table_1">
-			<tr><td class="td_0">{$_AL['products.content']}:</td><td class=""></td></tr>
+			<tr><td class="td_0">{$_AL['picture.content']}:</td><td class=""></td></tr>
 			<tr><td class="td_1" style='width:800px;'>
 				<textarea name="content" id="content" style="width: 800px; height: 400px;">{$row['content']}</textarea>
 			</td><td class="td_2"></td></tr>
@@ -76,9 +76,9 @@ echo <<<EOT
 	pt.classpre="smalltab_";
 	pt.container = "smalltab_container";
 	if(doaction=="add"){
-		pt.createTab("t1","{$_AL['products.add']}","",true,"n");
+		pt.createTab("t1","{$_AL['picture.add']}","",true,"n");
 	}else{
-		pt.createTab("t1","{$_AL['products.edit']}","",true,"n");
+		pt.createTab("t1","{$_AL['picture.edit']}","",true,"n");
 	}
 	pt.init = function(){
 		smallNowTab = pt.nowTab;
@@ -105,7 +105,7 @@ echo <<<EOT
 
 	function openUploadAttach(handle1,handle2){
 		window.handle1=handle1; window.handle2=handle2;
-		popwin.showURL("{$_AL['products.upfile']}",'../inc/attachment/index.php',800,500);
+		popwin.showURL("{$_AL['picture.upfile']}",'../inc/attachment/index.php',800,500);
 	}
 
 	function insertAttachment(fileid, filename, isimg){
@@ -224,7 +224,7 @@ echo <<<EOT
 EOT;
 	{
 	 	$dwidth=array(0,35,45,340,100,170,70,70,130,60);
-		$protype=$_AL['products.types'];
+		$protype=$_AL['picture.types'];
 		$protypecolor=array('#333','#36c','#f30');
 		$cond="langid={$_SYS['alangid']}";
 		$keyword=trim($_GET['k']);
@@ -253,33 +253,33 @@ EOT;
 		}
 		$curPage = intval($_GET["page"]);
 		$pager = new Pager();
-		$pager->init(15,$curPage,"admin.php?inc=products&action=list&k={$keyword}&cid={$cid}&type={$type}&orderby={$orderby}&page={page}");
-		$rows = $pager->queryRows($db,"products", $cond , "*",$orderbystr);
+		$pager->init(15,$curPage,"admin.php?inc=picture&action=list&k={$keyword}&cid={$cid}&type={$type}&orderby={$orderby}&page={page}");
+		$rows = $pager->queryRows($db,"picture", $cond , "*",$orderbystr);
 		$recstr=_LANG($_AL['all.totalrecords'], array($pager->recordNum));
 		
 echo <<<EOT
 	<div class="div_clear" style="height:10px;"></div>
 	<div class="tips_1">
-<select id="cid"><option value="0">{$_AL['products.choosecate']}</option>{$cache_procates_option}</select>
+<select id="cid"><option value="0">{$_AL['picture.choosecate']}</option>{$cache_procates_option}</select>
 {$_AL['all.keyword']}: <input class="text_css" type="text" size="20" value="{$keyword}" id="keyword" />
-<select id="orderby"><option value="ordernum,id">{$_AL['all.orderby']}</option><option value="posttime">{$_AL['all.posttime']}</option><option value="hits">{$_AL['all.hits']}</option><option value="price1">{$_AL['products.price']}</option><option value="level">{$_AL['products.level']}</option></select>
-<select id="type"><option value="-1">{$_AL['all.property']}</option><option value="1">{$_AL['products.types'][1]}</option><option value="2">{$_AL['products.types'][2]}</option></select>
-<input class="button_css" type="button" value="  {$_AL['all.search']}  " onclick="searchproducts()" />
+<select id="orderby"><option value="ordernum,id">{$_AL['all.orderby']}</option><option value="posttime">{$_AL['all.posttime']}</option><option value="hits">{$_AL['all.hits']}</option><option value="price1">{$_AL['picture.price']}</option><option value="level">{$_AL['picture.level']}</option></select>
+<select id="type"><option value="-1">{$_AL['all.property']}</option><option value="1">{$_AL['picture.types'][1]}</option><option value="2">{$_AL['picture.types'][2]}</option></select>
+<input class="button_css" type="button" value="  {$_AL['all.search']}  " onclick="searchpicture()" />
 &nbsp;&nbsp;&nbsp;{$recstr}</div>
 	<table class="table_1" width="100%">
-		<tr><td class="td_6"><a class="td_5_1a" href="admin.php?inc=products&action=add"><img src="images/ico_add.gif" border="0" /> {$_AL['products.add']}</a></td></tr>
+		<tr><td class="td_6"><a class="td_5_1a" href="admin.php?inc=picture&action=add"><img src="images/ico_add.gif" border="0" /> {$_AL['picture.add']}</a></td></tr>
 	</table>
 
 EOT;
-	echo("<form id=\"productsform\" onsubmit=\"return false;\">");
+	echo("<form id=\"pictureform\" onsubmit=\"return false;\">");
 	echo("<table class=\"table_1\" width=\"100%\">");
 	echo("<tr style=\"font-weight:bold;color:#333333;\"><td class=\"row_0\">".
 		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[1]}px;\">{$_AL['all.select']}</div>".
-		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[2]}px;\">{$_AL['products.order']}</div>".
-		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[3]}px; padding-right:5px;\">{$_AL['products.name']}</div>".
-		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[4]}px;\">{$_AL['products.price']}</div>".
-		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[5]}px;\">{$_AL['products.procate']}</div>".
-		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[6]}px;\">{$_AL['products.type']}</div>".
+		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[2]}px;\">{$_AL['picture.order']}</div>".
+		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[3]}px; padding-right:5px;\">{$_AL['picture.name']}</div>".
+		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[4]}px;\">{$_AL['picture.price']}</div>".
+		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[5]}px;\">{$_AL['picture.procate']}</div>".
+		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[6]}px;\">{$_AL['picture.type']}</div>".
 		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[7]}px;\">{$_AL['all.hits']}</div>".
 		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[8]}px;\">{$_AL['all.updatetime']}</div>".
 		"<div class=\"rowdiv_0\" style=\"width:{$dwidth[9]}px;\">{$_AL['all.control']}</div>".
@@ -303,11 +303,11 @@ EOT;
 			"<div class='rowdiv_0' style='width:{$dwidth[6]}px;'><span style='color:{$protypecolor[$row['type']]}'>{$protype[$row['type']]}</span></div>".
 			"<div class='rowdiv_0' style='width:{$dwidth[7]}px;'><span class='time'>{$row['hits']}</span></div>".
 			"<div class='rowdiv_0' style='width:{$dwidth[8]}px;'><span class='time'>{$row['posttime']}</span></div>".				
-			"<div class='rowdiv_0' style='width:{$dwidth[9]}px;'><a href=\"admin.php?inc=products&action=edit&id={$row['id']}\">{$_AL['all.edit']}</a></div>".
+			"<div class='rowdiv_0' style='width:{$dwidth[9]}px;'><a href=\"admin.php?inc=picture&action=edit&id={$row['id']}\">{$_AL['all.edit']}</a></div>".
 			"");				
 	}
 	echo("</table>");
-	echo("<table width=100%><tr><td><input type=\"checkbox\" onclick=\"selectAll('productsform',this.checked)\" class=\"checkbox_css\" /> {$_AL['all.selectall']} &nbsp;&nbsp;<input type=\"button\" class=\"button_css\" value=\" {$_AL['all.deletesel']} \" onclick=\"ajax_doproducts_yn()\" /> <input type=\"button\" class=\"button_css\" value=\" {$_AL['products.saveorder']} \" onclick=\"ajax_doproductsorder()\" /></td><td><div class='pagestrdiv'>{$pager->getPageStr()}</div></td></tr></table>");
+	echo("<table width=100%><tr><td><input type=\"checkbox\" onclick=\"selectAll('pictureform',this.checked)\" class=\"checkbox_css\" /> {$_AL['all.selectall']} &nbsp;&nbsp;<input type=\"button\" class=\"button_css\" value=\" {$_AL['all.deletesel']} \" onclick=\"ajax_dopicture_yn()\" /> <input type=\"button\" class=\"button_css\" value=\" {$_AL['picture.saveorder']} \" onclick=\"ajax_dopictureorder()\" /></td><td><div class='pagestrdiv'>{$pager->getPageStr()}</div></td></tr></table>");
 	echo("</form>");
  	}
 echo <<<EOT
@@ -320,7 +320,7 @@ var smallNowTab;
 var pt = new Tabs();
 pt.classpre="smalltab_";
 pt.container = "smalltab_container";
-pt.createTab("t1","{$_AL['products.list']}","",true,"n");
+pt.createTab("t1","{$_AL['picture.list']}","",true,"n");
 pt.init = function(){
 	smallNowTab = pt.nowTab;
 };
@@ -330,46 +330,46 @@ pt.onclick = function(){
 pt.initTab();
 pt.clickNowTab();
 
-function ajax_doproducts_yn(){
+function ajax_dopicture_yn(){
 	var btns=[
-		{value:" {$_AL['all.confirm']} ",onclick:"mainifm.ajax_doproducts()",focus:true},
+		{value:" {$_AL['all.confirm']} ",onclick:"mainifm.ajax_dopicture()",focus:true},
 		{value:" {$_AL['all.cancel']} ",onclick:"popwin.close()"}
 	];
-	popwin.showDialog(3,"{$_AL['all.confirm']}","{$_AL['products.del.warning']}",btns,380,130);
+	popwin.showDialog(3,"{$_AL['all.confirm']}","{$_AL['picture.del.warning']}",btns,380,130);
 }
 
 
-function ajax_doproducts(){
+function ajax_dopicture(){
 	popwin.loading();
-	ajaxPost("productsform","products_ajax.php?action=doproducts",ajax_doproducts_callback);
+	ajaxPost("pictureform","picture_ajax.php?action=dopicture",ajax_dopicture_callback);
 }
-function ajax_doproducts_callback(data){
+function ajax_dopicture_callback(data){
 	var btns=[{value:" {$_AL['all.ok']} ",onclick:"popwin.close();mainifm.location.reload();",focus:true}];
 	popwin.loaded();
 	if(isSucceed(data)){
-		popwin.showDialog(1,"{$_AL['all.con.succeed']}","{$_AL['products.del.succeed']}",btns,280,130);
+		popwin.showDialog(1,"{$_AL['all.con.succeed']}","{$_AL['picture.del.succeed']}",btns,280,130);
 	}else{
 		popwin.showDialog(0,"{$_AL['all.con.failed']}", data,btns,280,130);
 	}
 }
 
-function ajax_doproductsorder(){
+function ajax_dopictureorder(){
 	popwin.loading();
-	ajaxPost("productsform","products_ajax.php?action=doproductsorder",ajax_doproductsorder_callback);
+	ajaxPost("pictureform","picture_ajax.php?action=dopictureorder",ajax_dopictureorder_callback);
 }
-function ajax_doproductsorder_callback(data){
+function ajax_dopictureorder_callback(data){
 	var btns=[{value:" {$_AL['all.ok']} ",onclick:"popwin.close();mainifm.location.reload();",focus:true}];
 	popwin.loaded();
 	if(isSucceed(data)){
-		popwin.showDialog(1,"{$_AL['all.con.succeed']}","{$_AL['products.saveorder.succeed']}",btns,280,130);
+		popwin.showDialog(1,"{$_AL['all.con.succeed']}","{$_AL['picture.saveorder.succeed']}",btns,280,130);
 	}else{
 		popwin.showDialog(0,"{$_AL['all.con.failed']}", data,btns,280,130);
 	}
 }
 
 
-function searchproducts(){
-	var loc = "admin.php?inc=products&action=list&cid="+E("cid").value+"&k="+urlEncode(E("keyword").value)+"&orderby="+E("orderby").value+"&type="+E("type").value;
+function searchpicture(){
+	var loc = "admin.php?inc=picture&action=list&cid="+E("cid").value+"&k="+urlEncode(E("keyword").value)+"&orderby="+E("orderby").value+"&type="+E("type").value;
 	reloadSelf(loc);
 }
 
@@ -385,7 +385,7 @@ function PageInit(){
 function checkKeyPressEnter(eventobject){
 	var eve=eventobject||window.event;
 	if(eve.keyCode==13) {
-		searchproducts();
+		searchpicture();
 	}
 }
 window.onload=PageInit;

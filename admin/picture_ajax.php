@@ -8,14 +8,14 @@ require_once("./language/language.php");
 if(!isAdmin()){
 	exit($_AL['all.notlogin']);
 }
-if(!hasPopedom("products")){
+if(!hasPopedom("picture")){
 	exit(_LANG($_AL['admin.nopopedom'], array($_AL['index.product.man'])));
 }
 
 $action=strFilter($_GET['action']);
 switch($action){
 	
-	case "saveproducts":
+	case "savepicture":
 		try{
 			$doaction=strFilter($_POST['doaction']);
 			$pro['name']=strFilter($_POST['name']);
@@ -72,15 +72,15 @@ switch($action){
 
 			if($doaction=="edit"){
 				$id=intval($_POST['id']);
-				$db->row_update("products",$pro,"id={$id}");
+				$db->row_update("picture",$pro,"id={$id}");
 			}else{
 				$pro['ordernum']=100;
-				$db->row_insert("products",$pro);
+				$db->row_insert("picture",$pro);
 			}		
 			if($doaction=="edit"){
-				printRes("{$_AL['products.edit.succeed']}<script>setTimeout(function(){reloadSelf('admin.php?inc=products&action=list');},2000);</script>");
+				printRes("{$_AL['picture.edit.succeed']}<script>setTimeout(function(){reloadSelf('admin.php?inc=picture&action=list');},2000);</script>");
 			}else{
-				printRes("{$_AL['products.add.succeed']}<script>setTimeout(function(){reloadSelf('admin.php?inc=products&action=list');},2000);</script>");
+				printRes("{$_AL['picture.add.succeed']}<script>setTimeout(function(){reloadSelf('admin.php?inc=picture&action=list');},2000);</script>");
 			}
 
 		}catch(Exception $e){
@@ -89,13 +89,13 @@ switch($action){
 	break;
 
 
-	case "doproductsorder":
+	case "dopictureorder":
 		try{
 			$ordernums=$_POST['ordernum'];
 			if(is_array($ordernums)) {
 				foreach($ordernums as $id => $value) {
 					$product['ordernum'] = intval($value);
-					$db->row_update("products",$product,"id={$id}");
+					$db->row_update("picture",$product,"id={$id}");
 				}
 			}
 			succeedFlag();
@@ -105,19 +105,19 @@ switch($action){
 		}
 	break;
 
-	case "doproducts":
+	case "dopicture":
 		try{
 			$postaction=$_POST['postaction'];
 			$aids=$_POST['aids'];
 			if(empty($aids)){
-				exit($_AL['products.nosel']);
+				exit($_AL['picture.nosel']);
 			}
 			if(isIntArray($aids)) {
 				$aidstr=implode(",",$aids);
 				switch($postaction){
 					case "":
 					case "delProducts":
-						$db->row_delete("products","id in ({$aidstr})");
+						$db->row_delete("picture","id in ({$aidstr})");
 						succeedFlag();
 					break;
 					default:

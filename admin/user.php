@@ -27,6 +27,11 @@ echo <<<EOT
 				 <input type="checkbox" name="popedom[]" value="procate" /> {$_AL['index.procate.list']}<br />
 				 <input type="checkbox" name="popedom[]" value="products" /> {$_AL['index.product.list']}<br />
 			</td><td class="td_2"></td></tr>
+			<tr><td class="td_0">{$_AL['index.picture.man']}:</td><td class=""></td></tr>
+			<tr><td class="td_1">	
+				 <input type="checkbox" name="popedom[]" value="piccate" /> {$_AL['index.piccate.list']}<br />
+				 <input type="checkbox" name="popedom[]" value="picture" /> {$_AL['index.picture.list']}<br />
+			</td><td class="td_2"></td></tr>
 			<tr><td class="td_0">{$_AL['index.order.man']}:</td><td class=""></td></tr>
 			<tr><td class="td_1">	
 				 <input type="checkbox" name="popedom[]" value="order" /> {$_AL['index.order.man']}<br />

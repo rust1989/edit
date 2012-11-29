@@ -9,7 +9,18 @@ print <<<EOT
 {$headmeta}
 {$cache_settings['headcontent']}
 <link href="{$_SYS['TP']}/css.php?t=templatecss&s={$_SYS['styleid']}&v={$_SYS['VERSION']}&f=global|member" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="getfiles.php?t=js&v={$_SYS['VERSION']}&f=util|jquery|hoverIntent|slides|banner|productlist|iepng|search"></script>
+<script type="text/javascript" src="getfiles.php?t=js&v={$_SYS['VERSION']}&f=util|jquery|hoverIntent|banner|productlist|iepng|search"></script>
+<script type="text/javascript" src="slides.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#slides").slides({
+  play:5000,	
+  slideSpeed: 750,  
+  generateNextPrev: true,
+  generatePagination: true
+});	
+});
+</script>
 </head>
 <body>
 <div id="language"><div id="phone">{$cache_contacts[0]['phone']}</div><ul>{$langstr}</ul></div>
